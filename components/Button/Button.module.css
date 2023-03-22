@@ -1,0 +1,25 @@
+
+.button {
+    /* background-color: var(--icons-color); */
+    /* background: linear-gradient(to right, #935432, #FFC0A2); */
+    width: fit-content;
+    background: linear-gradient(90deg, #875056 14.92%, #F6EBE0 150.25%);
+    padding: 1rem 2rem;
+    /* border: 1px solid var(--icons-color); */
+    border-radius: 2rem;
+    font-size: 1.1rem;
+    /* color: var(--shadow-light-color); */
+    cursor: pointer;
+    transition:  all .2s ease-in;
+    outline: none;
+    border: 0;
+    color: white;
+    line-height: 0px;
+    /* box-shadow: var(--box-shadow); */
+}
+
+.button:hover{
+    background-color: var(--main-bg-color);
+    /* border:  1px solid var(--icons-color); */
+    color:  #4d2d31;
+}

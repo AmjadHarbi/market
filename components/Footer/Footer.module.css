@@ -1,0 +1,152 @@
+
+.footer_box_social_logo{
+    font-size: 5rem;
+  
+}
+
+.footer{  
+    color: black;
+    background: #dedddd;
+    width: 100%;
+    padding-block: 1.5rem;
+    position: relative;
+   
+}
+
+.footer_box_discover{
+    margin-left: 2rem;
+}
+
+.footer_box_social{
+    font-size: 1.3rem;
+}
+
+.footer_box_social_title{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.footer_box_social .arrow a::hover{
+    font-size: larger;
+}
+
+.footer_box_social_title h1{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 100%;
+    margin-left: 10px;
+}
+
+.footer_box_social p{
+    font-size: 15px;
+}
+
+.footer_box{
+    width: 80%;
+    margin: 0 auto;
+    display:  grid;
+    grid-template-columns: 2.5fr repeat(1, 1fr) 2fr;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* //SOCIAL */
+.footer_social{
+    display: flex;
+    gap: 1.3rem;
+    font-size: 2rem;
+    align-items: center;
+    margin-top: 20%;
+}
+
+
+.footer_social a{
+    padding: .5rem;
+    border-radius: 50%;
+    transition:  all .3s ease-in;
+    display: grid;
+    /* color: white; */
+}
+
+.footer_social a:hover{
+    /* background-color:  var(--icons-color);
+    color:  var(--shadow-dark-color);
+    box-shadow: var(--box-shadow); */
+    font-size: larger;
+}
+
+.subscribe h3{
+    margin-left: 1.5rem;
+}
+
+.subscribe_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    /* background: linear-gradient(to right, #935432, #FFC0A2); */
+    background: linear-gradient(90deg, #ffffff 80.25%, #875056 14.92%);
+    color: var(--shadow-dark-color);
+    border-radius: 5rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+}
+
+.subscribe_box input{
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 90%;
+    color: var(--shadow-dark-color);
+}
+
+.subscribe_box input::placeholder{
+    color:  var(--shadow-dark-color);
+}
+
+/* #subscribeBtn{
+    border: 0;
+    outline: none;
+    background: transparent;
+} */
+
+.subscribe_box button{
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    
+}
+.contact-form{
+    display: flex;
+    flex-direction: row;
+}
+
+.subscribe_box_send{
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    position: relative;
+    left: 30%;
+}
+
+.subscribe_box_info{
+    padding: 0.2rem 2rem;
+}
+
+/* //MEDIA QUERY */
+@media screen and (max-width: 45em) {
+    .footer_box{
+        width: 90%;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media screen and (max-width: 35em) {
+    .footer_box{
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+}

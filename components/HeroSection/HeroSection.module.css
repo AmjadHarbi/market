@@ -1,0 +1,71 @@
+
+.heroSection{
+    width: 80%;
+    margin: 3rem auto;
+}
+
+.heroSection_box{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 2rem;
+}
+
+.heroSection_box_left{
+    padding-right: 6rem;
+}
+
+.heroSection_box_left h1{
+    background: linear-gradient(90deg, #875056 0%, #FFC0A2 148.84%);;
+    background-clip: text;
+    -webkit-text-stroke: 2px transparent;
+    font-size: 5rem;
+    line-height: 1;
+    margin-top: 7rem;
+}
+
+.heroSection_box_left p{
+    margin-bottom:  2rem;
+    color: black;
+}
+
+.heroSection_box_right{
+    margin-top: 3rem;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.specImg{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.camelImg{
+    position: absolute;
+    top: 90px;
+    left: 30px;
+}
+
+@media screen and (max-width: 35em) {
+    .heroSection{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 55em) {
+    .heroSection_box{
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .heroSection_box_left{
+        padding-right: 2rem;
+    }
+
+    .heroSection_box_left h1{
+        line-height: 1;
+        font-size: 3rem;
+    }
+}

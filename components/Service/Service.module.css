@@ -1,0 +1,70 @@
+
+.service{
+    width: 80%;
+    margin: 3rem auto;
+    /* margin-block: 8rem; */
+}
+
+.service_box{
+    /* width: 100%; */
+    padding: 20px;
+    background: #FFFFFF;
+    opacity: 0.9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+}
+
+.service_items_box{
+  
+    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    gap: 3rem;
+    text-align: center;
+}
+
+/* .service_box_item_step{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+} */
+
+/* .service_box_item_step span{
+    padding: .5rem 1.5rem;
+    border-radius: 5rem;
+    background: linear-gradient(to right, #935432, #FFC0A2);
+    color: var(--shadow-dark-color);
+} */
+
+
+.serviceTitle h1{
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(90deg, #895257 40%, #D9A395 100%);;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5rem;
+    margin-top: 2.5rem;
+}
+
+.service_box_item{
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+.service_box_item h3{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 35em) {
+    .service{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .service_box{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}

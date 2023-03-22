@@ -1,0 +1,215 @@
+import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { GrClose } from "react-icons/gr";
+import {
+  TiSocialFacebook,
+  TiSocialLinkedin,
+  TiSocialTwitter,
+  TiMail,
+  TiSocialInstagram,
+  TiArrowSortedDown,
+  TiArrowSortedUp,
+} from "react-icons/ti";
+import { DiJqueryLogo } from "react-icons/di";
+import logo from "../../../img/logo200px.png";
+import logo2 from "../../../img/logo-edit2.png";
+
+//INTERNAL IMPORT
+import Style from "./SideBar.module.css";
+import images from "../../../img";
+import Button from "../../Button/Button";
+import { Router } from "next/router";
+import { withNamespaces } from 'react-i18next';
+
+const SideBar = ({ setOpenSideMenu, currentAccount, connectWallet, t, changeLanguage, language }) => {
+  //------USESTATE
+  const [openDiscover, setOpenDiscover] = useState(false);
+  const [openHelp, setOpenHelp] = useState(false);
+
+  const router = useRouter();
+
+  //--------DISCOVER NAVIGATION MENU
+  const discover = [
+    {
+          name: "about",
+          link: "aboutus",
+        },
+    {
+      name: "exploreNFTs",
+      link: "collection",
+    },
+    {
+      name: "search",
+      link: "searchPage",
+    },
+    // {
+    //   name: "Author Profile",
+    //   link: "author",
+    // },
+    // {
+    //   name: "NFT Details",
+    //   link: "NFT-details",
+    // },
+    // {
+    //   name: "Account Setting",
+    //   link: "account",
+    // },
+    {
+      name: "blog",
+      link: "blog",
+    },
+  ];
+  //------HELP CNTEER
+  // const helpCenter = [
+  //   {
+  //     name: "About",
+  //     link: "aboutus",
+  //   },
+  //   {
+  //     name: "Contact Us",
+  //     link: "contactus",
+  //   },
+  //   {
+  //     name: "Sign Up",
+  //     link: "signUp",
+  //   },
+  //   {
+  //     name: "LogIn",
+  //     link: "login",
+  //   },
+  //   {
+  //     name: "Subscription",
+  //     link: "subscription",
+  //   },
+  // ];
+
+  const openDiscoverMenu = () => {
+    if (!openDiscover) {
+      setOpenDiscover(true);
+    } else {
+      setOpenDiscover(false);
+    }
+  };
+
+  // const openHelpMenu = () => {
+  //   if (!openHelp) {
+  //     setOpenHelp(true);
+  //   } else {
+  //     setOpenHelp(false);
+  //   }
+  // };
+
+  const closeSideBar = () => {
+    setOpenSideMenu(false);
+  };
+
+  return (
+    <div className={Style.sideBar}>
+      <GrClose
+        className={Style.sideBar_closeBtn}
+        onClick={() => closeSideBar()}
+      />
+
+      <div className={Style.sideBar_box}>
+        {/* <Image src={images.logo} alt="logo" width={150} height={150} /> */}
+        <p>
+          <a href="/">
+            <Image
+            src= {logo2}
+            alt="logo"
+            width={100}
+            height={100}
+            className={Style.profile_account_img}
+          />
+          </a>  
+        {language == "en"?
+          <button btnName="AR" className={Style.lang} onClick={() => changeLanguage('ar')}>AR </button>
+          :
+          <button btnName="E" className={Style.lang} onClick={() => changeLanguage('en')}>E</button>
+        }
+    
+        </p>
+        <p>
+          {t("sidebarP")}
+        </p>
+        <div className={Style.sideBar_social}>
+          <a href="#">
+            <TiSocialFacebook />
+          </a>
+          <a href="#">
+            <TiSocialLinkedin />
+          </a>
+          <a href="#">
+            <TiSocialTwitter />
+          </a>
+          <a href="#">
+            <TiMail />
+          </a>
+          <a href="#">
+            <TiSocialInstagram />
+          </a>
+        </div>
+      </div>
+
+      <div className={Style.sideBar_menu}>
+        <div>
+          <div
+            className={Style.sideBar_menu_box}
+            onClick={() => openDiscoverMenu()}
+          >
+            <p>{t("discover")}</p>
+            <TiArrowSortedDown />
+          </div>
+
+          {openDiscover && (
+            <div className={Style.sideBar_discover}>
+              {discover.map((el, i) => (
+                <p key={i + 1}>
+                  <Link href={{ pathname: `${el.link}` }}>{t(el.name)}</Link>
+                </p>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div
+            className={Style.sideBar_menu_box}
+            onClick={() => openHelpMenu()}
+          >
+            {/* <p>Help Center</p>
+            <TiArrowSortedDown /> */}
+            <a href="/contactus" params={{t}}>{t("help")}</a>
+          </div>
+
+          {/* {openHelp && (
+            <div className={Style.sideBar_discover}>
+              {helpCenter.map((el, i) => (
+                <p key={i + 1}>
+                  <Link href={{ pathname: `${el.link}` }}>{el.name}</Link>
+                </p>
+              ))}
+            </div>
+          )} */}
+        </div>
+      </div>
+
+      <div className={Style.sideBar_button}>
+        {currentAccount == "" ? (
+          <Button btnName={t("connect")} handleClick={() => connectWallet()} />
+        ) : (
+          <Button
+            btnName={t("create")}
+            handleClick={() => router.push("/uploadNFT")}
+          />
+        )}
+
+        {/* <Button btnName="Connect Wallet" handleClick={() => connectWallet()} /> */}
+      </div>
+    </div>
+  );
+};
+
+export default withNamespaces()(SideBar);
